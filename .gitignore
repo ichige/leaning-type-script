@@ -1,2 +1,6 @@
 # IDE
 .idea/
+
+# directory
+dist/
+node_modules/
