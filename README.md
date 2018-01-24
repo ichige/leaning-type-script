@@ -8,3 +8,4 @@
 ## ハンドブック
 
 - [基本的な型](docs/handbook/BASIC-TYPES.md)
+- [変数の宣言](docs/handbook/VARIABLE-DECLARATIONS.md)
