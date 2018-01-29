@@ -10,3 +10,4 @@
 - [基本的な型](docs/handbook/BASIC-TYPES.md)
 - [変数の宣言](docs/handbook/VARIABLE-DECLARATIONS.md)
 - [インタフェース](docs/handbook/INTERFACES.md)
+- [クラス](/docs/handbook/CLASSES.md)
