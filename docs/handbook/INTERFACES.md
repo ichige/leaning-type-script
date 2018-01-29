@@ -382,3 +382,155 @@ class Clock implements ClockConstructor {
 }
 ```
 
+これは、クラスがインタフェースを実装する場合、そのクラスのインスタンス側のみがチェックされるためです。
+コンストラクタは静的な側にあるため、このチェックには含まれません。
+
+代わりに、クラスの静的な側で直接作業する必要があります。
+この例では、コンストラクタの `ClockConstructor` とインスタンスメソッドの `ClockInterface` の2つのインタフェースを定義します。
+次に、便宜上、渡される型のインスタンスを作成するコンストラクタ関数 `createClock` を定義します。
+
+```typescript
+interface ClockConstructor {
+    new (hour: number, minute: number): ClockInterface;
+}
+interface ClockInterface {
+    tick();
+}
+
+function createClock(ctor: ClockConstructor, hour: number, minute: number): ClockInterface {
+    return new ctor(hour, minute);
+}
+
+class DigitalClock implements ClockInterface {
+    constructor(h: number, m: number) { }
+    tick() {
+        console.log("beep beep");
+    }
+}
+class AnalogClock implements ClockInterface {
+    constructor(h: number, m: number) { }
+    tick() {
+        console.log("tick tock");
+    }
+}
+
+let digital = createClock(DigitalClock, 12, 17);
+let analog = createClock(AnalogClock, 7, 32);
+```
+
+## Extending Interfaces インタフェースの拡張
+
+クラスと同様に、インタフェースは互いに拡張することができます。
+これにより、あるインタフェースのメンバーを別のインタフェースにコピーすることができます。
+これにより、インタフェースを再利用可能なコンポーネントに分ける方法をより柔軟にすることができます。
+
+```typescript
+interface Shape {
+    color: string;
+}
+
+interface Square extends Shape {
+    sideLength: number;
+}
+
+let square = <Square>{};
+square.color = "blue";
+square.sideLength = 10;
+```
+
+インタフェースは複数のインタフェースを拡張して、すべてのインタフェースの組み合わせを作成することができます。
+
+```typescript
+interface Shape {
+    color: string;
+}
+
+interface PenStroke {
+    penWidth: number;
+}
+
+interface Square extends Shape, PenStroke {
+    sideLength: number;
+}
+
+let square = <Square>{};
+square.color = "blue";
+square.sideLength = 10;
+square.penWidth = 5.0;
+```
+
+## Hybrid Types ハイブリッド型
+
+前述のように、インタフェースは現実のJavaScriptに存在する豊富な種類を記述することができます。
+JavaScriptの動的で柔軟な性質のため、時には上記のいくつかのタイプの組み合わせとして機能するオブジェクトに遭遇することがあります。
+
+このような例の1つは、関数とオブジェクトの両方として機能し、追加のプロパティを持つオブジェクトです。
+
+```typescript
+interface Counter {
+    (start: number): string;
+    interval: number;
+    reset(): void;
+}
+
+function getCounter(): Counter {
+    let counter = <Counter>function (start: number) { };
+    counter.interval = 123;
+    counter.reset = function () { };
+    return counter;
+}
+
+let c = getCounter();
+c(10);
+c.reset();
+c.interval = 5.0;
+```
+
+サードパーティのJavaScriptとやりとりするときは、型の形を完全に記述するために上記のようなパターンを使用する必要があります。
+
+
+## Interfaces Extending Classes インタフェースを用いたクラスの拡張
+
+インタフェース型がクラス型を拡張する場合、クラスのメンバを継承しますが、実装は継承しません。
+これは、インタフェースが実装を提供せずにクラスのすべてのメンバーを宣言したかのようです。
+インタフェースは、基本クラスのprivateメンバーとprotectedメンバーを継承します。
+つまり、privateメンバーまたはprotectedメンバーを持つクラスを拡張するインタフェースを作成すると、そのインタフェースタイプはそのクラスまたはそのサブクラスによってのみ実装できます。
+
+これは、継承階層が大きく、特定のプロパティを持つサブクラスのみでコードが機能するように指定する場合に便利です。
+サブクラスは基本クラスから継承する以外に関連する必要はありません。 例えば…
+
+```typescript
+class Control {
+    private state: any;
+}
+
+interface SelectableControl extends Control {
+    select(): void;
+}
+
+class Button extends Control implements SelectableControl {
+    select() { }
+}
+
+class TextBox extends Control {
+
+}
+
+// Error: Property 'state' is missing in type 'Image'.
+class Image implements SelectableControl {
+    select() { }
+}
+
+class Location {
+
+}
+```
+
+上記の例では、`SelectableControl` には、private `state` プロパティを含む `Control` のすべてのメンバーが含まれています。
+`state` はprivateメンバーなので、`Control` の子孫は `SelectableControl` を実装することしかできません。
+これは、`Control` の子孫だけが同じ宣言で始まる`state` privateメンバーを持つためです。
+これは、priavteメンバーが互換性があるための要件です。
+
+`Control` クラス内では、`SelectableControl` のインスタンスを通じて状態プライベートメンバにアクセスできます。
+効果的に、`SelectableControl` は `select` メソッドを持つことが知られている `Control` のように動作します。
+`Button` クラスと `TextBox` クラスは、`SelectableControl` のサブタイプです（これらは両方とも `Control` から継承され、`select` メソッドを持っているため）が、`Image` クラスと `Location` クラスはそうではありません。
