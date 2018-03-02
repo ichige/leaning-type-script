@@ -11,3 +11,4 @@
 - [変数の宣言](docs/handbook/VARIABLE-DECLARATIONS.md)
 - [インタフェース](docs/handbook/INTERFACES.md)
 - [クラス](/docs/handbook/CLASSES.md)
+- [関数](docs/handbook/FUNCTIONS.md)
