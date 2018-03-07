@@ -12,3 +12,4 @@
 - [インタフェース](docs/handbook/INTERFACES.md)
 - [クラス](/docs/handbook/CLASSES.md)
 - [関数](docs/handbook/FUNCTIONS.md)
+- [ジェネリクス](docs/handbook/GENERICS.md)
