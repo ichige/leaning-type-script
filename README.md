@@ -9,7 +9,8 @@
 
 - [基本的な型](docs/handbook/BASIC-TYPES.md)
 - [変数の宣言](docs/handbook/VARIABLE-DECLARATIONS.md)
-- [インタフェース](docs/handbook/INTERFACES.md)
-- [クラス](/docs/handbook/CLASSES.md)
-- [関数](docs/handbook/FUNCTIONS.md)
-- [ジェネリクス](docs/handbook/GENERICS.md)
+- [インタフェース型](docs/handbook/INTERFACES.md)
+- [クラス型](/docs/handbook/CLASSES.md)
+- [関数型](docs/handbook/FUNCTIONS.md)
+- [汎用型](docs/handbook/GENERICS.md)
+- [列挙型](docs/handbook/ENUMS.md)
