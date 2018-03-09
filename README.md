@@ -15,3 +15,4 @@
 - [汎用型](docs/handbook/GENERICS.md)
 - [列挙型](docs/handbook/ENUMS.md)
 - [型推論](docs/handbook/TYPE-INFERENCE.md)
+- [型の互換性](docs/handbook/TYPE-COMPATIBILITY.md)
