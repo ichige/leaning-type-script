@@ -17,3 +17,4 @@
 - [型推論](docs/handbook/TYPE-INFERENCE.md)
 - [型の互換性](docs/handbook/TYPE-COMPATIBILITY.md)
 - [高度な型](docs/handbook/ADVANCED-TYPES.md)
+- [シンボル](docs/handbook/SYMBOLS.md)
