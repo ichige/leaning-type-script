@@ -19,3 +19,4 @@
 - [高度な型](docs/handbook/ADVANCED-TYPES.md)
 - [シンボル](docs/handbook/SYMBOLS.md)
 - [イテレータとジェネレータ](docs/handbook/ITERATOR-AND-GENERATOR.md)
+- [モジュール](docs/handbook/MODULES.md)
