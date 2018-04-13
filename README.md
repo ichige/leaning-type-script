@@ -21,3 +21,4 @@
 - [イテレータとジェネレータ](docs/handbook/ITERATOR-AND-GENERATOR.md)
 - [モジュール](docs/handbook/MODULES.md)
 - [ネームスペース](docs/handbook/NAMESPACES.md)
+- [ネームスペースとモジュール](docs/handbook/NAMESPACE-AND-MODULES.md)
