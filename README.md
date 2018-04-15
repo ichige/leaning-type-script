@@ -22,3 +22,4 @@
 - [モジュール](docs/handbook/MODULES.md)
 - [ネームスペース](docs/handbook/NAMESPACES.md)
 - [ネームスペースとモジュール](docs/handbook/NAMESPACE-AND-MODULES.md)
+- [モジュールの解決](docs/handbook/MODULE-RESOLUTION.md)
