@@ -23,3 +23,4 @@
 - [ネームスペース](docs/handbook/NAMESPACES.md)
 - [ネームスペースとモジュール](docs/handbook/NAMESPACE-AND-MODULES.md)
 - [モジュールの解決](docs/handbook/MODULE-RESOLUTION.md)
+- [宣言のマージ](docs/handbook/DECLARATION-MERGING.md)
