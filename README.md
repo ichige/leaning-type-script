@@ -26,3 +26,4 @@
 - [宣言のマージ](docs/handbook/DECLARATION-MERGING.md)
 - [JSX](docs/handbook/JSX.md)
 - [デコレータ](docs/handbook/DECORATORS.md)
+- [ミックスイン](docs/handbook/MIXINS.md)
