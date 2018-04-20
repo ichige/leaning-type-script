@@ -28,3 +28,4 @@
 - [デコレータ](docs/handbook/DECORATORS.md)
 - [ミックスイン](docs/handbook/MIXINS.md)
 - [トリプルスラッシュディレクティブ](docs/handbook/TRIPLE-SLASH-DIRECTIVES.md)
+- [Javascriptファイルの型チェック](docs/handbook/TYPE-CHECKING-JAVASCRIPT-FILES.md)
