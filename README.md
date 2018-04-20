@@ -25,3 +25,4 @@
 - [モジュールの解決](docs/handbook/MODULE-RESOLUTION.md)
 - [宣言のマージ](docs/handbook/DECLARATION-MERGING.md)
 - [JSX](docs/handbook/JSX.md)
+- [デコレータ](docs/handbook/DECORATORS.md)
