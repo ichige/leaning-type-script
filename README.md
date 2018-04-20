@@ -27,3 +27,4 @@
 - [JSX](docs/handbook/JSX.md)
 - [デコレータ](docs/handbook/DECORATORS.md)
 - [ミックスイン](docs/handbook/MIXINS.md)
+- [トリプルスラッシュディレクティブ](docs/handbook/TRIPLE-SLASH-DIRECTIVES.md)
